@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,16 +30,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  _launch(url) async {
-    if (await canLaunch(url)) {
-      await launch(
-        url,
-        forceWebView: false,
-      );
-    } else {
-      print("Not supported");
-    }
-  }
+  // _launch(url) async {
+  //   if (await canLaunch(url)) {
+  //     await launch(
+  //       url,
+  //       forceWebView: false,
+  //     );
+  //   } else {
+  //     print("Not supported");
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +57,8 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 50,
             ),
             ClipOval(
-              child: Image.network(
-                'https://www.andisuartika.com/assets/img/about.png',
+              child: Image.asset(
+                'images/andi.png',
                 width: 200,
                 height: 200,
               ),
@@ -75,18 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.blue.shade400,
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                var url = 'https://andisuartika.com';
-                _launch(url);
-              },
-              child: Text(
-                'andisuartika.com',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue.shade600,
-                ),
+            Text(
+              'andisuartika.com',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue.shade600,
               ),
             ),
             SizedBox(
